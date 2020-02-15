@@ -11,7 +11,7 @@ services:
   backend_feed:
     build:
       context: ../../udacity-c3-restapi-feed  
-    image: scheele/udacity-restapi-feed
+    image: obsidiancat/udacity-restapi-feed
   frontend:
     build:
       context: ../../udacity-c3-frontend  
