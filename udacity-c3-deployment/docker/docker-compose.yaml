@@ -1,7 +1,7 @@
 version: "3"
 services:
   reverseproxy:
-      image: scheele/reverseproxy
+      image: obsidiancat/reverseproxy
       ports:
           - 8080:8080
       restart: always
@@ -9,7 +9,7 @@ services:
         - backend-user
         - backend-feed     
   backend-user:
-    image: scheele/udacity-restapi-user
+    image: obsidiancat/udacity-restapi-user
     environment:
       POSTGRESS_USERNAME: $POSTGRESS_USERNAME
       POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
@@ -27,7 +27,7 @@ services:
     environment:
       POSTGRESS_USERNAME: $POSTGRESS_USERNAME
       POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
+      POSTGRESS_DB: $POSTGRESS_DATABASE
       POSTGRESS_HOST: $POSTGRESS_HOST 
       AWS_REGION: $AWS_REGION 
       AWS_PROFILE: $AWS_PROFILE 
@@ -35,6 +35,6 @@ services:
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
   frontend:
-    image: scheele/udacity-frontend:local
+    image: obsidiancat/udacity-frontend
     ports:
       - "8100:80"
