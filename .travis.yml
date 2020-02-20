@@ -22,8 +22,8 @@ install:
 #- docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 
 script:
-  - docker build -t obsidiancat/udacity-frontend udacity-c3-frontend/
-  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USER" --password-stdin
+  - docker build -t obsidiancat/udacity-restapi-user udacity-c3-restapi-user/
+  - echo "$DOCKER_HUB_PASSWORD" | docker login --user "$DOCKER_HUB_USER" --password-stdin
 after_script:
   - docker images
 
