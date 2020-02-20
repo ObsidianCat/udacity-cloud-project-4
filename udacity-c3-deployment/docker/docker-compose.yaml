@@ -17,9 +17,9 @@ services:
       POSTGRESS_HOST: $POSTGRESS_HOST 
       AWS_REGION: $AWS_REGION 
       AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_MEDIA_BUCKET
+      AWS_MEDIA_BUCKET: $AWS_MEDIA_BUCKET
       JWT_SECRET: $JWT_SECRET
-      URL: "http://localhost:8100"
+      FRONTEND_URL: "http://localhost:8100"
   backend-feed:
     image: obsidiancat/udacity-restapi-feed
     volumes:
@@ -31,9 +31,9 @@ services:
       POSTGRESS_HOST: $POSTGRESS_HOST 
       AWS_REGION: $AWS_REGION 
       AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_MEDIA_BUCKET
+      AWS_MEDIA_BUCKET: $AWS_MEDIA_BUCKET
       JWT_SECRET: $JWT_SECRET
-      URL: "http://localhost:8100"
+      FRONTEND_URL: $FRONTEND_URL
   frontend:
     image: obsidiancat/udacity-frontend
     ports:

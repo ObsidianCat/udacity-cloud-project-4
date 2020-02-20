@@ -23,11 +23,11 @@ spec:
             memory: "1024Mi"
             cpu: "250m"
         env:
-        - name: URL
+        - name: FRONTEND_URL
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: URL 
+              key: FRONTEND_URL
         - name: JWT_SECRET
           valueFrom:
             configMapKeyRef:
