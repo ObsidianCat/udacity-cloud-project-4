@@ -7,8 +7,8 @@ export const config = {
     "dialect": "postgres",
     "aws_reigion": process.env.AWS_REGION,
     "aws_profile": process.env.AWS_PROFILE,
-    "aws_media_bucket": process.env.AWS_BUCKET,
-    "url": process.env.URL    
+    "aws_media_bucket": process.env.AWS_MEDIA_BUCKET,
+    "url": process.env.FRONTEND_URL ||  "http://localhost:8100"
   },
   "prod": {
     "username": "",
