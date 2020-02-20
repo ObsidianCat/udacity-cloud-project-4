@@ -60,3 +60,4 @@ typings/
 .idea/modules.xml
 .idea/misc.xml
 *.xml
+.env-variables-local
