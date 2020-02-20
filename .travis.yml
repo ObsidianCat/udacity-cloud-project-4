@@ -23,7 +23,7 @@ install:
 
 script:
   - docker build -t obsidiancat/udacity-restapi-user udacity-c3-restapi-user/
-  - echo "$DOCKER_HUB_PASSWORD" | docker login --user "$DOCKER_HUB_USER" --password-stdin
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USER" --password-stdin
 after_script:
   - docker images
 
