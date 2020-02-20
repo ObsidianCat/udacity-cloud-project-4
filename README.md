@@ -21,7 +21,6 @@ Please verify that you provide following Environment variables
 - AWS_MEDIA_BUCKET= 
 - JWT_SECRET= 
 - FRONTEND_URL: "http://localhost:8100"
-- API_HOST=http://localhost:8080/api/v0
 
 Alternatively to docker-compose, you could run each app separately from their retrospective folders
 
