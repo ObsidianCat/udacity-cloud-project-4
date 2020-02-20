@@ -23,16 +23,17 @@ install:
 
 script:
   - docker build -t obsidiancat/udacity-frontend udacity-c3-frontend/
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USER" --password-stdin
 after_script:
   - docker images
 
-before_deploy:
-  - docker login -u "$REGISTRY_USER" -p "$DOCKER_HUB_PASSWORD"
-deploy:
-  provider: script
-  script: docker push obsidiancat/udacity-frontend
-  on:
-    all_branches: true
+#before_deploy:
+#  - docker login -u "$REGISTRY_USER" -p "$DOCKER_HUB_PASSWORD"
+#deploy:
+#  provider: script
+##  script: docker push obsidiancat/udacity-frontend
+#  on:
+#    all_branches: true
 
 
 
