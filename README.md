@@ -1,16 +1,29 @@
-# Udagram Image Filtering Microservice
+# Udagram Application
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+Udagram is a set of micro-services. They are part of Udacity Cloud Engineering Nanodegree.
 
 The project is split into three parts:
-1. [The Simple Frontend](/udacity-c3-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. 
+1. [The Simple Frontend](/udacity-c3-frontend) a basic Ionic client web application which consumes the RestAPI Backend. 
 2. [The RestAPI Feed Backend](/udacity-c3-restapi-feed), a Node-Express feed microservice.
 3. [The RestAPI User Backend](/udacity-c3-restapi-user), a Node-Express user microservice.
+4. [The Deployment](/udacity-c3-deployment), a configuration for docker-compose and kubernetes cluster.
 
-## Getting Setup
+## Running locally
+From the project root directory run
+`cd udacity-c3-deployment/docker && docker-compose up`
+Please verify that you provide following Environment variables
+- POSTGRESS_USERNAME= 
+- POSTGRESS_PASSWORD= 
+- POSTGRESS_DB= 
+- POSTGRESS_HOST= 
+- AWS_REGION=
+- AWS_PROFILE=
+- AWS_MEDIA_BUCKET= 
+- JWT_SECRET= 
+- FRONTEND_URL: "http://localhost:8100"
+- API_HOST=http://localhost:8080/api/v0
 
-> _tip_: this frontend is designed to work with the RestAPI backends). It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
+Alternatively to docker-compose, you could run each app separately from their retrospective folders
 
 ### Installing Node and NPM
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from [https://nodejs.com/en/download](https://nodejs.org/en/download/).
