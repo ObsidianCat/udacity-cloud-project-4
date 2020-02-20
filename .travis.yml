@@ -21,13 +21,19 @@ install:
 - echo `hello udacity`
 - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 
-before_script:
-  - docker login -u "$REGISTRY_USER" -p "$DOCKER_HUB_PASSWORD"
+
 script:
   - docker build -t obsidiancat/udacity-frontend udacity-c3-frontend/
-  - docker push obsidiancat/udacity-frontend
 after_script:
   - docker images
+
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$DOCKER_HUB_PASSWORD"
+deploy:
+  provider: script
+  script: docker push obsidiancat/udacity-frontend
+
+
 
 
 
