@@ -1,41 +1,21 @@
 language: minimal
+
 services: docker
+
 env:
-  matrix:
   - DOCKER_COMPOSE_VERSION=1.23.2
-  - DOCKER_HUB_USER=obsidiancat
-  global:
-    secure: HaFdsBoinnN56cIJk7T10Zc01HZ80GGwXoFx4ahNBs6OQ6/NmeoXDl8ZLFt/jGZudoXmBUd9NclMj9x2xxWFpG00l+4+S4ThP2kyt3SXt0HN5AkkRgEBQyk9xGFVYZfI9ZUChDOaZLrbvScIQR3iBg2f8VKiCaphQsaTQH6Tc0GqruiU9XL14pNL5qrx3AwrXpk31J/3xwzKJCdQtRmUWCtcJ0728OZMx3s3ws57Nn75OmJKQXv0mM9qqKBg/e52Efh5RHHuQZ6u/T2Qm+ul9MEAdINTJT8GwwRH15lHNFrv08QuS/CxPjjeJ3tTQVs9iLResiISTY9hQm8toQTHpGTVimq870cZk+8j9Ezx0Xr8NGHo83+pNArkCB8YdILiusbLcJoe8tTtCGB3ga5QQHQg6eo1GAR5FVgV1OXIQeDzHmW2YHY88X4n6lFLsfjqB7MGm+8mFMVMeRtI9algPJR3Hxrn0EeRBOlAS856IERfZXsW0Bz0LvACuuMX9xoxxlYiqyQE5c9nU4zySBY2CxUCZkv43LwpyMyfXZRojeVy6rkdHg5nC/msdd4SJu5VVMgwW6f7la9rVryqQh4BvE3wadlucb64a6y3Q5B1biIONj5CleL06J2S/goL1QrbR6lQT44+Pm/zO8DnCEUmm2qaEuppqYFLnGop0cifCoE=
 
 before_install:
-- docker -v && docker-compose -v
-- sudo rm /usr/local/bin/docker-compose
-- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
-  -s`-`uname -m` > docker-compose
-- chmod +x docker-compose
-- sudo mv docker-compose /usr/local/bin
-- curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-- chmod +x ./kubectl
-- sudo mv ./kubectl /usr/local/bin/kubectl
+  - docker -v && docker-compose -v
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  - chmod +x ./kubectl
+  - sudo mv ./kubectl /usr/local/bin/kubectl
+
+
 install:
-- echo `hello udacity`
-#- docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
-
-script:
-  - docker build -t obsidiancat/udacity-restapi-user udacity-c3-restapi-user/
-  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USER" --password-stdin
-after_script:
-  - docker images
-
-#before_deploy:
-#  - docker login -u "$REGISTRY_USER" -p "$DOCKER_HUB_PASSWORD"
-#deploy:
-#  provider: script
-##  script: docker push obsidiancat/udacity-frontend
-#  on:
-#    all_branches: true
-
-
-
-
-
+  - echo `hello udacity`
+  - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
